@@ -1,7 +1,11 @@
 import React from 'react';
-import { Facebook, Linkedin, Instagram, Twitter, MapPin, Mail } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Twitter, MapPin, Mail, Lock } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onAdminClick: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
   return (
     <footer className="bg-[#080c17] border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,8 +85,15 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/10 pt-8 text-center text-sm text-gray-500">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
           <p>Copyright © 2025 <span className="text-white font-semibold">ENARA'S DESK</span>. All Rights Reserved</p>
+          <button 
+            onClick={onAdminClick}
+            className="flex items-center gap-1 text-gray-400 hover:text-brand-cyan transition-colors px-3 py-1 rounded border border-white/5 hover:border-brand-cyan/30"
+          >
+            <Lock size={12} />
+            <span className="text-xs font-medium">Admin Login</span>
+          </button>
         </div>
       </div>
     </footer>

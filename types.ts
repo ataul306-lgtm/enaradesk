@@ -13,3 +13,12 @@ export interface HeroProps {
   buttonText: string;
   imageSrc: string;
 }
+
+export interface Post {
+  id: string;
+  title: string;
+  categoryId: string; // matches the ID in ResourcesGrid (e.g., 'marketing-tools')
+  categoryName: string; // Display name (e.g., 'Marketing Tools')
+  status: 'Published' | 'Draft';
+  date: string;
+}
